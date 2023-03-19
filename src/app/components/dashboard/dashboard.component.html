@@ -1,0 +1,54 @@
+<!-- Barre de navigation supérieure -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="Logo de PositronX.io">
+  </a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+<!-- Menu latéral -->
+<nav class="col-md-2 d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-user"></i>Profil utilisateur
+        </a>
+      </li>
+      <!-- Appel de l'API SignOut() depuis AuthService -->
+      <li class="nav-item">
+        <a class="nav-link" (click)="authService.SignOut()">
+          <i class="fas fa-sign-out-alt"></i>Se déconnecter
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contenu principal -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="inner-adjust">
+
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Profil utilisateur</h1>
+    </div>
+    <!-- Afficher les données utilisateur lorsqu'il est connecté -->
+    <div class="row" *ngIf="authService.userData as user">
+      <div class="col-md-12">
+        <div class="media">
+          <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+            alt="{{user.displayName}}">
+          <div class="media-body">
+            <h1>Bonjour: <strong>{{(user.displayName) ? user.displayName : 'Utilisateur'}}</strong></h1>
+            <p>Utilisateur: <strong>{{user.uid}}</strong></p>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <p>Email vérifié: <strong>{{user.emailVerified}}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</div>
