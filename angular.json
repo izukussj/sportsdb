@@ -104,6 +104,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angularfiebase-authentication:build:production",
+            "firebaseProject": "sportdb-7ed6f",
+            "firebaseHostingSite": "sportdb-7ed6f"
+          }
         }
       }
     }

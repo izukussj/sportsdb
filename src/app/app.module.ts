@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Import the module here
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 
@@ -18,10 +18,13 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 
 // routing
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // service
 import { AuthService } from './shared/services/auth.service';
 
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { APIService } from './shared/services/api.service';
 
 @NgModule({
   declarations: [
@@ -30,18 +33,20 @@ import { AuthService } from './shared/services/auth.service';
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule, // Add the module here
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AppRoutingModule,
+    HttpClientModule
+    
   ],
-  providers: [AuthService],
+  providers: [AuthService,APIService],
   bootstrap: [AppComponent],
 })
 

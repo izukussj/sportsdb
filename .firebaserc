@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sportdb-7ed6f": {
+      "hosting": {
+        "angularfiebase-authentication": [
+          "sportdb-7ed6f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sportdb-7ed6f"
+  }
+}
